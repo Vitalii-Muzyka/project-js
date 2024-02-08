@@ -1,0 +1,44 @@
+@font-face {
+  font-family: "Revolution";
+  src: url(../fonts/ProtestRevolution-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Riot";
+  src: url(../fonts/ProtestRiot-Regular.ttf);
+}
+
+@font-face {
+    font-family: "DancingScript";
+    src: url(../fonts/DancingScript-Regular.ttf);
+  }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "DancingScript";
+}
+
+:root {
+  --background-color: rgb(255, 246, 237);
+  --background-saturated-color: rgb(251, 241, 231);
+  --dark-text-color: rgba(38, 49, 145, 0.74);
+  --text-color: rgb(106, 110, 143);
+  --text-color-light: rgba(106, 110, 143, 0.5);
+  --bright-text-color: rgb(255, 91, 46);
+  --button-background-color: rgba(38, 49, 145, 0.781);
+  --button-dark-color: rgb(4, 15, 115);
+  --button-saturated-color: rgb(255, 91, 46);
+  scroll-behavior: smooth;
+  color: var(--text-color);
+  font-size: 24px;
+  line-height: 32px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+

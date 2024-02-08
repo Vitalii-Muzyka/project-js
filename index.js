@@ -1,14 +1,19 @@
-
 document.addEventListener('DOMContentLoaded', () => {
-  loadTasks();
+  loadTasks('Monday');
+  loadTasks('Tuesday');
+  loadTasks('Wednesday');
+  loadTasks('Thursday');
+  loadTasks('Friday');
+  loadTasks('Saturday');
+  loadTasks('Sunday');
 });
 
-function addTask() {
-  const taskInput = document.getElementById('taskInput');
-  const taskList = document.getElementById('taskList');
+function addTask(day) {
+  const taskInput = document.getElementById(`taskInput${day}`);
+  const taskList = document.getElementById(`taskList${day}`);
 
   if (taskInput.value.trim() === '') {
-    alert('Введіть назву справи');
+    alert('Enter a task name');
     return;
   }
 
@@ -18,59 +23,63 @@ function addTask() {
     completed: false
   };
 
-  const tasks = getTasks();
+  const tasks = getTasks(day);
   tasks.push(task);
-  saveTasks(tasks);
+  saveTasks(day, tasks);
 
   taskInput.value = '';
-  renderTasks();
+  renderTasks(day);
 }
 
-function renderTasks() {
-  const taskList = document.getElementById('taskList');
+function renderTasks(day) {
+  const taskList = document.getElementById(`taskList${day}`);
   taskList.innerHTML = '';
 
-  const tasks = getTasks();
+  const tasks = getTasks(day);
 
   tasks.forEach(task => {
     const li = document.createElement('li');
     li.innerHTML = `
-      <input type="checkbox" ${task.completed ? 'checked' : ''} onchange="toggleTask(${task.id})">
-      <span>${task.name}</span>
-      <button onclick="deleteTask(${task.id})">Видалити</button>
+      <input type="checkbox" class="custom-checkbox" ${task.completed ? 'checked' : ''} onchange="toggleTask('${day}', ${task.id})">
+      <span ${task.completed ? 'style="text-decoration: line-through; color: var(--text-color-light);"' : ''}>${task.name}</span>
+      <button class="button-delete" onclick="deleteTask('${day}', ${task.id})"><img src="images/delete.png" alt="delete" class="button-img"></button>
     `;
     taskList.appendChild(li);
   });
 }
 
-function deleteTask(id) {
-  const tasks = getTasks();
+function deleteTask(day, id) {
+  const tasks = getTasks(day);
   const updatedTasks = tasks.filter(task => task.id !== id);
-  saveTasks(updatedTasks);
-  renderTasks();
+  const confirmation = confirm('Do you really want to delete the task?');
+  if (confirmation) {
+    saveTasks(day, updatedTasks);
+    renderTasks(day);
+  }
+
 }
 
-function toggleTask(id) {
-  const tasks = getTasks();
+function toggleTask(day, id) {
+  const tasks = getTasks(day);
   const updatedTasks = tasks.map(task => {
     if (task.id === id) {
       task.completed = !task.completed;
     }
     return task;
   });
-  saveTasks(updatedTasks);
-  renderTasks();
+  saveTasks(day, updatedTasks);
+  renderTasks(day);
 }
 
-function getTasks() {
-  const storedTasks = localStorage.getItem('tasks');
+function getTasks(day) {
+  const storedTasks = localStorage.getItem(`tasks-${day}`);
   return storedTasks ? JSON.parse(storedTasks) : [];
 }
 
-function saveTasks(tasks) {
-  localStorage.setItem('tasks', JSON.stringify(tasks));
+function saveTasks(day, tasks) {
+  localStorage.setItem(`tasks-${day}`, JSON.stringify(tasks));
 }
 
-function loadTasks() {
-  renderTasks();
+function loadTasks(day) {
+  renderTasks(day);
 }

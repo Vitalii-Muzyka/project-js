@@ -1,20 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/index.css">
-  <title>Список справ</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do-list</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="shortcut icon" href="images/icon.png" type="image/x-icon">
 </head>
+
 <body>
+    <header>
+        <div class="container">
+            <h1>My to-do list</h1>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <h2>To-do list for the week</h2>
+            <div class="tasks">
+                <section class="task">
+                    <h3>Monday</h3>
+                    <input type="text" class="input-text" id="taskInputMonday" placeholder="Add a new task">
+                    <button class="button-add" onclick="addTask('Monday')">Add</button>
+                    <ul id="taskListMonday"></ul>
+                </section>
+                <section class="task">
+                    <h3>Tuesday</h3>
+                    <input type="text" class="input-text" id="taskInputTuesday" placeholder="Add a new task">
+                    <button class="button-add" onclick="addTask('Tuesday')">Add</button>
+                    <ul id="taskListTuesday"></ul>
+                </section>
+                <section class="task">
+                    <h3>Wednesday</h3>
+                    <input type="text" class="input-text" id="taskInputWednesday" placeholder="Add a new task">
+                    <button class="button-add" onclick="addTask('Wednesday')">Add</button>
+                    <ul id="taskListWednesday"></ul>
+                </section>
+                <section class="task">
+                    <h3>Thursday</h3>
+                    <input type="text" class="input-text" id="taskInputThursday" placeholder="Add a new task">
+                    <button class="button-add" onclick="addTask('Thursday')">Add</button>
+                    <ul id="taskListThursday"></ul>
+                </section>
+                <section class="task">
+                    <h3>Friday</h3>
+                    <input type="text" class="input-text" id="taskInputFriday" placeholder="Add a new task">
+                    <button class="button-add" onclick="addTask('Friday')">Add</button>
+                    <ul id="taskListFriday"></ul>
+                </section>
+                <section class="task">
+                    <h3>Saturday</h3>
+                    <input type="text" class="input-text" id="taskInputSaturday" placeholder="Add a new task">
+                    <button class="button-add" onclick="addTask('Saturday')">Add</button>
+                    <ul id="taskListSaturday"></ul>
+                </section>
+                <section class="task">
+                    <h3>Sunday</h3>
+                    <input type="text" class="input-text" id="taskInputSunday" placeholder="Add a new task">
+                    <button class="button-add" onclick="addTask('Sunday')">Add</button>
+                    <ul id="taskListSunday"></ul>
+                </section>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p>My personal project</p>
+            <p>Vitalii Muzyka</p>
+        </div>
+    </footer>
 
-  <div class="container">
-    <h1>Список справ</h1>
-    <input type="text" id="taskInput" placeholder="Додати нову справу">
-    <button onclick="addTask()">Додати</button>
-    <ul id="taskList"></ul>
-  </div>
-
-  <script src="index.js"></script>
+    <script src="index.js"></script>
 </body>
+
 </html>
