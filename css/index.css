@@ -3,39 +3,47 @@
 /* HEADER */
 header {
   height: 350px;
-  background-image: url(../images/to-do-lists.webp);
+  background-image: url(../images/to-do-lists.png);
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: 40% 0;
 }
 
 h1 {
-  font-size: 68px;
-  line-height: 72px;
-  padding: 60px 220px;
+  display: none;
+}
+
+@media (min-width: 1900px) {
+  header {
+    background-image: url(../images/to-do-lists.webp);
+  }
+
+  h1 {
+    display: block;
+    font-size: 72px;
+    line-height: 72px;
+    padding: 60px 220px;
+  }
 }
 
 /* MAIN */
 main {
   background-color: var(--background-color);
-  padding: 80px 0;
+  padding: 80px 32px;
 }
 
 h2 {
   font-size: 48px;
+  line-height: 52px;
   margin-bottom: 50px;
   text-align: center;
-
 }
 
 .tasks {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 50px;
 }
-
-/* section {
-  text-align: left;
-} */
 
 h3 {
   font-size: 34px;
@@ -49,21 +57,24 @@ ul {
 }
 
 li {
-  padding-bottom: 15px;
+  margin-bottom: 15px;
 }
 
 .input-text {
+  width: 100%;
   font-size: 24px;
   padding: 10px;
   margin-bottom: 15px;
 }
 
 .button-add {
+  width: 100%;
   font-size: 24px;
   padding: 10px 30px;
   background-color: var(--button-background-color);
   color: white;
   cursor: pointer;
+  margin-bottom: 15px;
 }
 
 .button-add:hover {
@@ -88,6 +99,40 @@ li {
   width: 17px;
   height: 17px;
   cursor: pointer;
+}
+
+@media (min-width: 500px) {
+  main {
+    padding: 80px 50px;
+  }
+}
+
+@media (min-width: 800px) {
+  main {
+    padding: 80px 60px;
+  }
+
+  .tasks {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .input-text {
+    width: 70%;
+  }
+  
+  .button-add {
+    width: 28%;
+  }
+}
+
+@media (min-width: 1280px) {
+  main {
+    padding: 80px 32px;
+  }
+
+  .tasks {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 
 /* FOOTER */
